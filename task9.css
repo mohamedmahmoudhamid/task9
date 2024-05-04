@@ -1,0 +1,121 @@
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+:root {
+    --card-height: 400px;
+    --card-width: 300px;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    animation-name: mohamed;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-play-state: running;
+    background-image: radial-gradient(circle at center, #191c29 0%, #0f2c84 100%);
+
+}
+/* .card:hover card{
+    animation-name: mohamed;
+    animation-play-state: paused; */
+/* } */
+
+@keyframes mohamed {
+    0%{
+        background-image: radial-gradient(circle at center, #191c29 0%, #0f2c84 100%);
+    }
+    20%{
+        background-image: radial-gradient(circle at center, #000000 0%, #35458e 100%);
+
+    }
+    40%{
+        background-image: radial-gradient(circle at center, #065449 0%, #0a6d83 100%);
+
+    }
+    60%{
+        background-image: radial-gradient(circle at center, #0b433b 0%, #097e26 100%);
+
+    }
+    80%{
+        background-image: radial-gradient(circle at center, #5d8f11 0%, #0f8430 100%);
+
+    }
+    100%{
+        background-image: radial-gradient(circle at center, #191c29 0%, #0f2c84 100%);
+
+    }
+}
+.carding{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    transform: translateY(50%);
+}
+.card {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: 1.5em;
+    color: rgb(88 199 250 / 0%);
+    cursor: pointer;
+    font-family: cursive;}.card:hover {
+    color: rgb(88 199 250 / 100%);
+    transition: color 1s;}.card:hover:before, .card:hover:after {
+    animation: none;
+    opacity: 0;}.card::before {
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s alternate-reverse infinite;
+    animation-timing-function: ease-in-out;
+    transition: all 1s;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+    100% {
+        --rotate: 360deg;
+    }
+}
